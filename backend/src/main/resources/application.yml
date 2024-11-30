@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: backend
+  datasource:
+    url: jdbc:postgresql://localhost:5432/College-Management-System
+    username: postgres
+    password: 1013
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-timeout: 20000
+    logging:
+      level:
+        org.springframework: DEBUG
+  security:
+    basic:
+      enabled: false
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: postgresql
