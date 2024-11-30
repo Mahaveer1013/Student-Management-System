@@ -1,15 +1,14 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { logout } from '../slices/authSlice';
 
 const NotAuthorizedPage = () => {
   const navigate = useNavigate();
 
-  const dispatch = useDispatch();
-
   const handleLogout = () => {
     if (window.confirm("Are you sure you want to logout?")) {
+      const dispatch = useDispatch();
       dispatch(logout());
       navigate("/login");
     }
@@ -23,7 +22,7 @@ const NotAuthorizedPage = () => {
           You do not have the necessary permissions to access this page. Please contact your administrator for assistance.
         </p>
         <div className="flex space-x-4">
-          <button 
+          <button
             onClick={() => navigate('/')}
             className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition duration-300"
           >
@@ -36,7 +35,7 @@ const NotAuthorizedPage = () => {
             Go Back
           </button>
           <button
-            onClick={() => handleLogout}
+            onClick={handleLogout}
             className="bg-gray-500 text-white px-6 py-2 rounded-lg hover:bg-gray-600 transition duration-300"
           >
             Logout

@@ -1,11 +1,15 @@
 import React, { lazy, Suspense } from 'react'
 import { useSelector } from 'react-redux';
-import Loading from '../components/Loading';
+import Loading from '../components/common/Loading';
 import { Navigate } from 'react-router-dom';
 
 const DashboardPage = () => {
 
   const user = useSelector((state) => state.auth.user);
+
+  if (!user) {
+    return <Navigate to="/login" />;
+  }
 
   let DashboardComponent;
 
